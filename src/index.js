@@ -1,11 +1,12 @@
+import "bootstrap/dist/css/bootstrap.css";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./routes/Index";
 import Contact from "./routes/Contact";
-
-import "bootstrap/dist/css/bootstrap.css";
+import Post from "./routes/Post";
 import Root from "./routes/Root";
 
 const router = createBrowserRouter([
@@ -26,6 +27,17 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/posts/:postId",
+        loader({ params }) {
+          return fetch(
+            `https://jsonplaceholder.typicode.com/posts/${params.postId}?_expand=user&_embed=comments`
+          ).then((response) => {
+            return response.json();
+          });
+        },
+        element: <Post />,
       },
     ],
   },

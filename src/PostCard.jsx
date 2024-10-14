@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PostCard(props) {
   return (
     <div className="card mb-3">
@@ -7,6 +9,9 @@ export default function PostCard(props) {
           By {props.post.user.name}
         </h6>
         <p className="card-text">{props.post.body.substring(0, 100)}...</p>
+        <Link to={`/posts/${props.post.id}`} className="card-link">
+          Read
+        </Link>
       </div>
     </div>
   );
