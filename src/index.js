@@ -6,15 +6,21 @@ import Index from "./routes/Index";
 import Contact from "./routes/Contact";
 
 import "bootstrap/dist/css/bootstrap.css";
+import Root from "./routes/Root";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Index />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
+    element: <Root />, // doesn't need to be called Root
+    children: [
+      {
+        path: "/",
+        element: <Index />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
   },
 ]);
 

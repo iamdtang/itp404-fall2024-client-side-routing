@@ -1,9 +1,6 @@
-import Navigation from "../Navigation";
-
 export default function Contact() {
   return (
-    <div className="container">
-      <Navigation />
+    <div className="contact-page">
       <h1>Contact</h1>
     </div>
   );
