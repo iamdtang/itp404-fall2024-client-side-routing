@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Deploying React Projects to Surge.sh",
+      "body": "Learn how to deploy your Create React App project to Surge.sh."
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "title": "Aborting Fetch Requests with AbortController",
+      "body": "Learn how to abort fetch requests with the AbortController class and how to do it in a React component."
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "David Tang"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "Super helpful, thanks!",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "body": "Love that this is free!",
+      "postId": "1"
+    },
+    {
+      "id": "3",
+      "body": "Wow, didn't know about this!",
+      "postId": "2"
+    }
+  ]
+}

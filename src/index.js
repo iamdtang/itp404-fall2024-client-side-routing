@@ -17,9 +17,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Index />,
         loader() {
-          return fetch(
-            "https://jsonplaceholder.typicode.com/posts?_expand=user"
-          ).then((response) => {
+          return fetch("/posts?_expand=user").then((response) => {
             return response.json();
           });
         },
@@ -32,7 +30,7 @@ const router = createBrowserRouter([
         path: "/posts/:postId",
         loader({ params }) {
           return fetch(
-            `https://jsonplaceholder.typicode.com/posts/${params.postId}?_expand=user&_embed=comments`
+            `/posts/${params.postId}?_expand=user&_embed=comments`
           ).then((response) => {
             return response.json();
           });
