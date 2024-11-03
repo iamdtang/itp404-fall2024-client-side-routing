@@ -1,5 +1,6 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import PostForm from "../PostForm";
+import { toast } from "react-toastify";
 
 export default function EditPost() {
   const post = useLoaderData();
@@ -17,6 +18,7 @@ export default function EditPost() {
           },
         }).then(() => {
           navigate(`/posts/${post.id}`);
+          toast.success("Your post was successfully updated.");
         });
       }}
     />

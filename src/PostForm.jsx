@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function PostForm(props) {
   const [title, setTitle] = useState(props.post ? props.post.title : "");
@@ -9,6 +10,11 @@ export default function PostForm(props) {
       method="post"
       onSubmit={(event) => {
         event.preventDefault();
+
+        if (!title || !body) {
+          toast.error("A post requires a title and body");
+          return;
+        }
 
         props.onSubmit({
           title,

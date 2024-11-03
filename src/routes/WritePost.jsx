@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PostForm from "../PostForm";
+import { toast } from "react-toastify";
 
 export default function WritePost() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function WritePost() {
           },
         }).then(() => {
           navigate("/");
+          toast.success("You successfully created your post.");
         });
       }}
     />
