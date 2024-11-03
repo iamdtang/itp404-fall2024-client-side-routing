@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 export default function Post() {
   const post = useLoaderData();
+  const navigate = useNavigate();
 
   return (
     <div className="post-page">
@@ -16,6 +17,26 @@ export default function Post() {
           return <li key={comment.id}>{comment.body}</li>;
         })}
       </ol>
+
+      <button
+        type="button"
+        className="btn btn-danger"
+        onClick={() => {
+          const isDeleteConfirmed = window.confirm(
+            "Are you sure you want to delete this post?"
+          );
+
+          if (isDeleteConfirmed) {
+            fetch(`/posts/${post.id}`, {
+              method: "DELETE",
+            }).then(() => {
+              navigate("/");
+            });
+          }
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 }
