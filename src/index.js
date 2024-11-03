@@ -9,6 +9,7 @@ import Contact from "./routes/Contact";
 import Post from "./routes/Post";
 import Root from "./routes/Root";
 import WritePost from "./routes/WritePost";
+import EditPost from "./routes/EditPost";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <WritePost />,
+      },
+      {
+        path: "/posts/:postId/edit",
+        loader({ params }) {
+          return fetch(`/posts/${params.postId}`).then((response) => {
+            return response.json();
+          });
+        },
+        element: <EditPost />,
       },
     ],
   },
