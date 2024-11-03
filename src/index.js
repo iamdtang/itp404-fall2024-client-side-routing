@@ -8,6 +8,7 @@ import Index from "./routes/Index";
 import Contact from "./routes/Contact";
 import Post from "./routes/Post";
 import Root from "./routes/Root";
+import WritePost from "./routes/WritePost";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
           });
         },
         element: <Post />,
+      },
+      {
+        path: "/write",
+        element: <WritePost />,
       },
     ],
   },

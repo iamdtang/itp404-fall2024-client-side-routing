@@ -15,6 +15,11 @@ export default function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/write" className="nav-link">
+                Write a post
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/contact" className="nav-link">
                 Contact
               </Link>
